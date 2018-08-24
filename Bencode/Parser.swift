@@ -10,58 +10,79 @@ import Foundation
 import ParserCombinator
 import FP
 
-let zeroAscii = Character("0").asciiValue
-let nineAscii = Character("9").asciiValue
+private struct Tokens {
+    static let i: UInt8 = 0x69
+    static let l: UInt8 = 0x6c
+    static let d: UInt8 = 0x64
+    static let e: UInt8 = 0x65
+    static let zero: UInt8 = 0x30
+    static let nine: UInt8 = 0x39
+    static let colon: UInt8 = 0x3a
+    static let plus: UInt8 = 0x2b
+    static let minus: UInt8 = 0x2d
+}
+
+public typealias Byte = UInt8
+
+func byte(matching condition: @escaping (Byte) -> Bool) -> Parser<ArraySlice<Byte>, Byte> {
+    
+    return Parser {
+        input in
+        guard let first = input.first else {
+            return .fail(ParserError.eof)
+        }
+        
+        guard condition(first) else {
+            return .fail(ParserError.notMatch)
+        }
+        
+        return .done(input.dropFirst(), first)
+    }
+}
 
 /// 结束符号
-let ending = character {  $0 == "e" }
+let ending = byte { $0 == Tokens.e }
 
 
 /// 整数的开始标识
-let integerHead = character {  $0 == "i" }
+let integerHead =  byte { $0 == Tokens.i }
 
 /// list 的开始标识
-let listHead = character {  $0 == "l" }
+let listHead = byte { $0 == Tokens.l }
 
 /// Dictionary 的开始标识
-let dictHead = character {  $0 == "d" }
+let dictHead = byte { $0 == Tokens.d }
 
 /// 冒号
-let colon = character {  $0 == ":" }
+let colon = byte { $0 == Tokens.colon }
 
 /// +
-let positiveSign = character {  $0 == "+" }
+let positiveSign = byte { $0 == Tokens.plus }
 
 /// -
-let negitiveSign = character {  $0 == "-" }
+let negitiveSign = byte { $0 == Tokens.minus }
 
 /// 0-9
-let digit = character { ch in
-    let ascii = ch.asciiValue
-    return ascii >= zeroAscii && ascii <= nineAscii
-}
+let digit = byte { $0 >= Tokens.zero && $0 <= Tokens.nine }
 
 
 /// 1-9
-let nzDigit = character { ch in
-    let ascii = ch.asciiValue
-    return ascii > zeroAscii && ascii <= nineAscii
-}
+let nzDigit = byte { $0 > Tokens.zero && $0 <= Tokens.nine }
 
 /// NZ_DIGIT DIGIT*;
-let multiInt =  { rt in Int(String([rt.0] + rt.1))! } <^> nzDigit.followed(by: digit.many1)
+
+let multiInt =  { rt in ([rt.0] + rt.1).int! } <^> nzDigit.followed(by: digit.many1)
 
 ///  DIGIT
-let singleInt = { x in Int(String(x))! } <^> digit
+let singleInt = { x in [x].int! } <^> digit
 /// INT : DIGIT | NZ_DIGIT DIGIT*;
 let int = multiInt <|> singleInt
 
-private func integerTransformer(sign: Character?, num: Int) -> Int {
+private func integerTransformer(sign: Byte?, num: Int) -> Int {
     guard let s = sign else {
         return num
     }
-    
-    if s == "+" {
+    if s == Tokens.plus {
         return num
     } else {
         return -num
@@ -70,35 +91,58 @@ private func integerTransformer(sign: Character?, num: Int) -> Int {
 
 let signedInt = integerTransformer <^> (positiveSign <|> negitiveSign).optional.followed(by: int)
 
-func takeNCharacters(n: Int) -> Parser<Substring, String> {
+func takeNBytes(n: Int) -> Parser<ArraySlice<Byte>, [Byte]> {
     
     return Parser {
         input in
         
-        guard input.utf8.count >= n else {
+        guard input.count >= n else {
             return .fail(ParserError.eof)
         }
         
-        let index = input.utf8.index(input.utf8.startIndex, offsetBy: n)
-        let string = String(input[..<index])
-        return .done(input.dropFirst(n), string)
+        let start = input.startIndex
+        let end = input.index(input.startIndex, offsetBy: n)
+        let rt = input[start ..< end]
+        return .done(input.dropFirst(n), Array(rt))
     }
 }
 
-//    string     : INT ':' stringData[$INT.int];
-func string() -> Parser<Substring, BencodeValue> {
+func takeString(withByteLength length: Int) -> Parser<ArraySlice<Byte>, String> {
     
-    return { x in BencodeValue.string(x) } <^> ((int <* colon) >>- takeNCharacters)
+    return takeNBytes(n: length).then {
+        bytes in
+        let text = bytes.string
+        return Parser {
+            input in
+            if let txt = text {
+                return .done(input, txt)
+            } else {
+                return .fail(ParserError.notMatch)
+            }
+        }
+    }
+}
+
+func data() -> Parser<ArraySlice<Byte>, BencodeValue> {
+    
+    return { x in BencodeValue.data(Data(bytes: x)) } <^> ((int <* colon) >>- takeNBytes)
+}
+
+
+//    string     : INT ':' stringData[$INT.int];
+func string() -> Parser<ArraySlice<Byte>, BencodeValue> {
+    
+    return { x in BencodeValue.string(x) } <^> ((int <* colon) >>- takeString)
 }
 
 //    integer    : 'i' sign=('+'|'-')? INT 'e';
-func integer() -> Parser<Substring, BencodeValue> {
+func integer() -> Parser<ArraySlice<Byte>, BencodeValue> {
     
     
     return { x in BencodeValue.integer(x) } <^> signedInt.between(open: integerHead, close: ending)
 }
 
-func dict() -> Parser<Substring, BencodeValue> {
+func dict() -> Parser<ArraySlice<Byte>, BencodeValue> {
     
     let parseKV = (dictHead >>- {
         input in
@@ -119,7 +163,7 @@ func dict() -> Parser<Substring, BencodeValue> {
 }
 
 /// list       : 'l' value* 'e';
-func list() -> Parser<Substring, BencodeValue> {
+func list() -> Parser<ArraySlice<Byte>, BencodeValue> {
     
     let parseLst = (listHead >>- {
         input in
@@ -130,9 +174,9 @@ func list() -> Parser<Substring, BencodeValue> {
 }
 
 /// dictionary : 'd' (string value)* 'e';
-func value() -> Parser<Substring, BencodeValue> {
+func value() -> Parser<ArraySlice<Byte>, BencodeValue> {
     
-    return list() <|> dict() <|> integer() <|> string()
+    return list() <|> dict() <|> integer() <|> string() <|> data()
 }
 
 /// BencodeParser

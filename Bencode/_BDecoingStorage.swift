@@ -29,6 +29,5 @@ struct _BDecodingStorage {
         self.containers.removeLast()
     }
     
-    
     init() { }
 }

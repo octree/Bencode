@@ -21,4 +21,5 @@ public indirect enum BencodeValue {
     case string(String)
     case list([BencodeValue])
     case dict([String: BencodeValue])
+    case data(Data)
 }

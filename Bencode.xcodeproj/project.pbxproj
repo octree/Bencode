@@ -27,6 +27,8 @@
 		C2BE35E2212FBC0900938BBC /* _BKeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E1212FBC0900938BBC /* _BKeyedDecodingContainer.swift */; };
 		C2BE35E4212FC91D00938BBC /* DecoderError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E3212FC91D00938BBC /* DecoderError+Extension.swift */; };
 		C2BE35E6212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E5212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift */; };
+		C2BE35E8212FE50B00938BBC /* t.txt in Resources */ = {isa = PBXBuildFile; fileRef = C2BE35E7212FE50B00938BBC /* t.txt */; };
+		C2BE35EA212FEBB900938BBC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E9212FEBB900938BBC /* Extensions.swift */; };
 		C2EC6DCC212EA53F00C7438B /* Bencode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6DC2212EA53F00C7438B /* Bencode.framework */; };
 		C2EC6DD1212EA53F00C7438B /* BencodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC6DD0212EA53F00C7438B /* BencodeTests.swift */; };
 		C2EC6DD3212EA53F00C7438B /* Bencode.h in Headers */ = {isa = PBXBuildFile; fileRef = C2EC6DC5212EA53F00C7438B /* Bencode.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,6 +95,8 @@
 		C2BE35E1212FBC0900938BBC /* _BKeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _BKeyedDecodingContainer.swift; sourceTree = "<group>"; };
 		C2BE35E3212FC91D00938BBC /* DecoderError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DecoderError+Extension.swift"; sourceTree = "<group>"; };
 		C2BE35E5212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _BUnkeyedDecodingContainer.swift; sourceTree = "<group>"; };
+		C2BE35E7212FE50B00938BBC /* t.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = t.txt; sourceTree = "<group>"; };
+		C2BE35E9212FEBB900938BBC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C2EC6DC2212EA53F00C7438B /* Bencode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bencode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EC6DC5212EA53F00C7438B /* Bencode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bencode.h; sourceTree = "<group>"; };
 		C2EC6DC6212EA53F00C7438B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		C22607A7212EB9B10067AE3A /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C2BE35E7212FE50B00938BBC /* t.txt */,
 				C22607A8212EB9B10067AE3A /* AppDelegate.swift */,
 				C22607AA212EB9B10067AE3A /* ViewController.swift */,
 				C22607AC212EB9B10067AE3A /* Main.storyboard */,
@@ -199,6 +204,7 @@
 				C2BE35E1212FBC0900938BBC /* _BKeyedDecodingContainer.swift */,
 				C2BE35E3212FC91D00938BBC /* DecoderError+Extension.swift */,
 				C2BE35E5212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift */,
+				C2BE35E9212FEBB900938BBC /* Extensions.swift */,
 			);
 			path = Bencode;
 			sourceTree = "<group>";
@@ -363,6 +369,7 @@
 				C22607B3212EB9B20067AE3A /* LaunchScreen.storyboard in Resources */,
 				C22607B0212EB9B20067AE3A /* Assets.xcassets in Resources */,
 				C22607AE212EB9B10067AE3A /* Main.storyboard in Resources */,
+				C2BE35E8212FE50B00938BBC /* t.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2BE35E2212FBC0900938BBC /* _BKeyedDecodingContainer.swift in Sources */,
+				C2BE35EA212FEBB900938BBC /* Extensions.swift in Sources */,
 				C2057AC9212F9FF90085B463 /* Parser.swift in Sources */,
 				C2BE35E6212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift in Sources */,
 				C2057ACF212FA68C0085B463 /* BDecoder.swift in Sources */,

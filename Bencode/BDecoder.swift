@@ -14,10 +14,10 @@ open class BDecoder {
 
     public init() {}
     
-    open func decode<T : Decodable>(_ type: T.Type, from text: String) throws -> T {
+    open func decode<T : Decodable>(_ type: T.Type, from data: Data) throws -> T {
         let topLevel: BencodeValue
-        
-        switch BencodeParser.parse(Substring(text)) {
+        var bytes = [UInt8](data)
+        switch BencodeParser.parse(bytes[...]) {
         case let .done(_, rt):
             topLevel = rt
         case let .fail(error):
