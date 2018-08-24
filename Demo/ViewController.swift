@@ -38,7 +38,7 @@ func test() {
 
 func bt() -> Data {
     
-    let path = Bundle.main.path(forResource: "t", ofType: "txt")!
+    let path = Bundle.main.path(forResource: "t", ofType: "bt")!
     return try! Data(contentsOf: URL(fileURLWithPath: path))
 }
 

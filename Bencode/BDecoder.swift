@@ -247,6 +247,19 @@ extension _BDecoder {
         return string
     }
 
+    fileprivate func unbox(_ value: BencodeValue, as type: Data.Type) throws -> Data? {
+       
+        if case let .data(data) = value {
+            return data
+        }
+        
+        if case let .string(text) = value {
+            
+            return text.data(using: .ascii)
+        }
+        
+        throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: value)
+    }
     
     func unbox<T : Decodable>(_ value: BencodeValue, as type: T.Type) throws -> T? {
         return try unbox_(value, as: type) as? T
@@ -254,9 +267,14 @@ extension _BDecoder {
     
     func unbox_(_ value: BencodeValue, as type: Decodable.Type) throws -> Any? {
         
-        self.storage.push(container: value)
-        defer { self.storage.pop() }
-        return try type.init(from: self)
+        if type == Data.self {
+            
+            return try unbox(value, as: Data.self)
+        } else {
+            self.storage.push(container: value)
+            defer { self.storage.pop() }
+            return try type.init(from: self)
+        }
     }
 }
 
