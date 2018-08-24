@@ -9,6 +9,17 @@
 import UIKit
 import Bencode
 
+struct Fuck: Decodable {
+    
+    var name: String
+    var age: Int
+    var you: You
+}
+
+struct You: Decodable {
+
+    var name: String
+}
 
 func test() {
     
@@ -23,6 +34,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         test()
+        
+        do {
+            let decoder = BDecoder()
+            let txt = "d4:name6:Octree3:agei22e3:youd4:name3:Biuee";
+            let rt = try decoder.decode(Fuck.self, from: txt)
+            print(rt)
+        } catch {
+            print(error)
+        }
     }
 
 
