@@ -327,10 +327,6 @@ extension _BDecoder {
             return nil
         }
         
-        if case let .data(data) = just {
-            return data
-        }
-        
         if case let .string(text) = just {
             
             return text.data(using: .utf8)

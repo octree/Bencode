@@ -123,12 +123,6 @@ func takeString(withByteLength length: Int) -> Parser<ArraySlice<Byte>, String> 
     }
 }
 
-func data() -> Parser<ArraySlice<Byte>, BencodeValue> {
-    
-    return { x in BencodeValue.data(Data(bytes: x)) } <^> ((int <* colon) >>- takeNBytes)
-}
-
-
 //    string     : INT ':' stringData[$INT.int];
 func string() -> Parser<ArraySlice<Byte>, BencodeValue> {
     
@@ -176,7 +170,7 @@ func list() -> Parser<ArraySlice<Byte>, BencodeValue> {
 /// dictionary : 'd' (string value)* 'e';
 func value() -> Parser<ArraySlice<Byte>, BencodeValue> {
     
-    return list() <|> dict() <|> integer() <|> string() <|> data()
+    return list() <|> dict() <|> integer() <|> string()
 }
 
 /// BencodeParser
