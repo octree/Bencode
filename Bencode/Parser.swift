@@ -136,6 +136,5 @@ func value() -> Parser<Substring, BencodeValue> {
     return list() <|> dict() <|> integer() <|> string()
 }
 
-
 /// BencodeParser
 public let BencodeParser = value()

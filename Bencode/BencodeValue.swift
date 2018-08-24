@@ -8,6 +8,13 @@
 
 import Foundation
 
+
+/// BencodeValue
+///
+/// - integer: 整数
+/// - string: 字符串
+/// - list: 列表
+/// - dict: 字典序列
 public indirect enum BencodeValue {
     
     case integer(Int)
