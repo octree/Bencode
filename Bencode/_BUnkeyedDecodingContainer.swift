@@ -34,6 +34,7 @@ struct _BUnkeyedDecodingContainer: UnkeyedDecodingContainer {
     }
     
     mutating func decodeNil() throws -> Bool {
+        
         guard !self.isAtEnd else {
             throw DecodingError.valueNotFound(Any?.self, DecodingError.Context(codingPath: self.decoder.codingPath + [_BKey(intValue: self.currentIndex)], debugDescription: "Unkeyed container is at end."))
         }

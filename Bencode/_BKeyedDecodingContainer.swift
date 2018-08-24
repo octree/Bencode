@@ -354,8 +354,7 @@ struct _BKeyedDecodingContainer<K : CodingKey> : KeyedDecodingContainerProtocol 
         self.decoder.codingPath.append(key)
         defer { self.decoder.codingPath.removeLast() }
         
-        #warning("添加 null 类型")
-        let value: BencodeValue = self.container[key.stringValue]!
+        let value: BencodeValue? = self.container[key.stringValue]
         return _BDecoder(referencing: value, at: self.decoder.codingPath)
     }
     

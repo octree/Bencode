@@ -10,15 +10,15 @@ import Foundation
 
 struct _BDecodingStorage {
     
-    private(set) var containers: [BencodeValue] = []
+    private(set) var containers: [BencodeValue?] = []
     var count: Int { return containers.count }
-    var topContainer: BencodeValue {
+    var topContainer: BencodeValue? {
         
         precondition(!self.containers.isEmpty, "Empty container stack.")
         return self.containers.last!
     }
     
-    mutating func push(container: BencodeValue) {
+    mutating func push(container: BencodeValue?) {
         
         containers.append(container)
     }
