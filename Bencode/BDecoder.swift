@@ -333,7 +333,7 @@ extension _BDecoder {
         
         if case let .string(text) = just {
             
-            return text.data(using: .ascii)
+            return text.data(using: .utf8)
         }
         
         throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: just)
