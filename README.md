@@ -1,4 +1,3 @@
 # Bencode
 
-bencode parser
-
+bencode parser, Powered by [ParserCombinator](https://github.com/octree/ParserCombinator)
