@@ -10,8 +10,6 @@ import Foundation
 import ParserCombinator
 import FP
 
-
-
 let zeroAscii = Character("0").asciiValue
 let nineAscii = Character("9").asciiValue
 
@@ -76,11 +74,12 @@ func takeNCharacters(n: Int) -> Parser<Substring, String> {
     
     return Parser {
         input in
-        guard input.count >= n else {
+        
+        guard input.utf8.count >= n else {
             return .fail(ParserError.eof)
         }
         
-        let index = input.index(input.startIndex, offsetBy: n)
+        let index = input.utf8.index(input.utf8.startIndex, offsetBy: n)
         let string = String(input[..<index])
         return .done(input.dropFirst(n), string)
     }
