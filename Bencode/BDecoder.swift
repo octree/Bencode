@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+open class BDecoder {
+    
+    public init() {}
+    
+}

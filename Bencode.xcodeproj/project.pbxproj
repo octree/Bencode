@@ -10,6 +10,7 @@
 		C2057AC9212F9FF90085B463 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057AC8212F9FF90085B463 /* Parser.swift */; };
 		C2057ACB212FA0140085B463 /* BencodeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACA212FA0140085B463 /* BencodeValue.swift */; };
 		C2057ACD212FA0470085B463 /* Character+ASCII.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACC212FA0470085B463 /* Character+ASCII.swift */; };
+		C2057ACF212FA68C0085B463 /* BDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACE212FA68C0085B463 /* BDecoder.swift */; };
 		C22607A9212EB9B10067AE3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22607A8212EB9B10067AE3A /* AppDelegate.swift */; };
 		C22607AB212EB9B10067AE3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22607AA212EB9B10067AE3A /* ViewController.swift */; };
 		C22607AE212EB9B10067AE3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C22607AC212EB9B10067AE3A /* Main.storyboard */; };
@@ -25,7 +26,6 @@
 		C2EC6DCC212EA53F00C7438B /* Bencode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6DC2212EA53F00C7438B /* Bencode.framework */; };
 		C2EC6DD1212EA53F00C7438B /* BencodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC6DD0212EA53F00C7438B /* BencodeTests.swift */; };
 		C2EC6DD3212EA53F00C7438B /* Bencode.h in Headers */ = {isa = PBXBuildFile; fileRef = C2EC6DC5212EA53F00C7438B /* Bencode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C2EC6E8F212EB0CB00C7438B /* Bencoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EC6E8E212EB0CB00C7438B /* Bencoder.swift */; };
 		C2EC6E93212EB3DE00C7438B /* ParserCombinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6E91212EB3DE00C7438B /* ParserCombinator.framework */; };
 		C2EC6E94212EB3DE00C7438B /* FP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6E92212EB3DE00C7438B /* FP.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +74,7 @@
 		C2057AC8212F9FF90085B463 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C2057ACA212FA0140085B463 /* BencodeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BencodeValue.swift; sourceTree = "<group>"; };
 		C2057ACC212FA0470085B463 /* Character+ASCII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+ASCII.swift"; sourceTree = "<group>"; };
+		C2057ACE212FA68C0085B463 /* BDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDecoder.swift; sourceTree = "<group>"; };
 		C22607A6212EB9B10067AE3A /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22607A8212EB9B10067AE3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C22607AA212EB9B10067AE3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		C2EC6DCB212EA53F00C7438B /* BencodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BencodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EC6DD0212EA53F00C7438B /* BencodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BencodeTests.swift; sourceTree = "<group>"; };
 		C2EC6DD2212EA53F00C7438B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C2EC6E8E212EB0CB00C7438B /* Bencoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bencoder.swift; sourceTree = "<group>"; };
 		C2EC6E91212EB3DE00C7438B /* ParserCombinator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParserCombinator.framework; path = Carthage/Build/iOS/ParserCombinator.framework; sourceTree = "<group>"; };
 		C2EC6E92212EB3DE00C7438B /* FP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FP.framework; path = Carthage/Build/iOS/FP.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,10 +183,10 @@
 			children = (
 				C2EC6DC5212EA53F00C7438B /* Bencode.h */,
 				C2EC6DC6212EA53F00C7438B /* Info.plist */,
-				C2EC6E8E212EB0CB00C7438B /* Bencoder.swift */,
 				C2057AC8212F9FF90085B463 /* Parser.swift */,
 				C2057ACA212FA0140085B463 /* BencodeValue.swift */,
 				C2057ACC212FA0470085B463 /* Character+ASCII.swift */,
+				C2057ACE212FA68C0085B463 /* BDecoder.swift */,
 			);
 			path = Bencode;
 			sourceTree = "<group>";
@@ -400,8 +400,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2057AC9212F9FF90085B463 /* Parser.swift in Sources */,
+				C2057ACF212FA68C0085B463 /* BDecoder.swift in Sources */,
 				C2057ACD212FA0470085B463 /* Character+ASCII.swift in Sources */,
-				C2EC6E8F212EB0CB00C7438B /* Bencoder.swift in Sources */,
 				C2057ACB212FA0140085B463 /* BencodeValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
