@@ -32,13 +32,14 @@ func test() {
     print(BencodeParser.parse(testingBytes(fromString: "14:helloworld helloworld")))
     print(BencodeParser.parse(testingBytes(fromString: "l7:tolstoyi42ee")))
     print(BencodeParser.parse(testingBytes(fromString: "d6:string11:Hello World7:integeri12345e4:dictd3:key36:This is a string within a dictionarye4:listli1ei2ei3ei4e6:stringi5edeee")))
+    print(BencodeParser.parse([UInt8](bt())[...]))
 //    print(BencodeParser.parse(Substring(bt())))
 }
 
-func bt() -> String {
+func bt() -> Data {
     
     let path = Bundle.main.path(forResource: "t", ofType: "txt")!
-    return try! String(contentsOfFile: path)
+    return try! Data(contentsOf: URL(fileURLWithPath: path))
 }
 
 class ViewController: UIViewController {
@@ -55,7 +56,5 @@ class ViewController: UIViewController {
             print(error)
         }
     }
-
-
 }
 
