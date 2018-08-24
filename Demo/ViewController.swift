@@ -14,6 +14,7 @@ struct Fuck: Decodable {
     var name: String
     var age: Int?
     var you: You
+    var ints: [Int]
 }
 
 struct You: Decodable {
@@ -49,7 +50,7 @@ class ViewController: UIViewController {
         test()
         do {
             let decoder = BDecoder()
-            let txt = "d4:name6:Octree3:youd4:name3:Biuee";
+            let txt = "d4:name6:Octree4:intsli123ei234ee3:youd4:name3:Biuee";
             let rt = try decoder.decode(Fuck.self, from: txt.data(using: .utf8)!)
             print(rt)
         } catch {
