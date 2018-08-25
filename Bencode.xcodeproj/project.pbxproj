@@ -172,6 +172,34 @@
 			path = DemoTests;
 			sourceTree = "<group>";
 		};
+		C252B1FF2131B55900DF095E /* Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				C2057ACE212FA68C0085B463 /* BDecoder.swift */,
+				C2BE35DF212FB96B00938BBC /* _BDecoingStorage.swift */,
+				C2BE35E1212FBC0900938BBC /* _BKeyedDecodingContainer.swift */,
+				C2BE35E3212FC91D00938BBC /* DecoderError+Extension.swift */,
+				C2BE35E5212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift */,
+			);
+			path = Decoder;
+			sourceTree = "<group>";
+		};
+		C252B2002131B56D00DF095E /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				C2057AC8212F9FF90085B463 /* Parser.swift */,
+				C2057ACA212FA0140085B463 /* BencodeValue.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		C252B2012131B57800DF095E /* Encoder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Encoder;
+			sourceTree = "<group>";
+		};
 		C2EC6DB8212EA53F00C7438B = {
 			isa = PBXGroup;
 			children = (
@@ -198,15 +226,11 @@
 		C2EC6DC4212EA53F00C7438B /* Bencode */ = {
 			isa = PBXGroup;
 			children = (
+				C252B2012131B57800DF095E /* Encoder */,
+				C252B2002131B56D00DF095E /* Parser */,
+				C252B1FF2131B55900DF095E /* Decoder */,
 				C2EC6DC5212EA53F00C7438B /* Bencode.h */,
 				C2EC6DC6212EA53F00C7438B /* Info.plist */,
-				C2057AC8212F9FF90085B463 /* Parser.swift */,
-				C2057ACA212FA0140085B463 /* BencodeValue.swift */,
-				C2057ACE212FA68C0085B463 /* BDecoder.swift */,
-				C2BE35DF212FB96B00938BBC /* _BDecoingStorage.swift */,
-				C2BE35E1212FBC0900938BBC /* _BKeyedDecodingContainer.swift */,
-				C2BE35E3212FC91D00938BBC /* DecoderError+Extension.swift */,
-				C2BE35E5212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift */,
 				C2BE35E9212FEBB900938BBC /* Extensions.swift */,
 			);
 			path = Bencode;
