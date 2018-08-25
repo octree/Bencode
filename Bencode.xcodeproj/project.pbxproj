@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C2057AC9212F9FF90085B463 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057AC8212F9FF90085B463 /* Parser.swift */; };
 		C2057ACB212FA0140085B463 /* BencodeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACA212FA0140085B463 /* BencodeValue.swift */; };
-		C2057ACD212FA0470085B463 /* Character+ASCII.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACC212FA0470085B463 /* Character+ASCII.swift */; };
 		C2057ACF212FA68C0085B463 /* BDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACE212FA68C0085B463 /* BDecoder.swift */; };
 		C22607A9212EB9B10067AE3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22607A8212EB9B10067AE3A /* AppDelegate.swift */; };
 		C22607AB212EB9B10067AE3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22607AA212EB9B10067AE3A /* ViewController.swift */; };
@@ -81,7 +80,6 @@
 /* Begin PBXFileReference section */
 		C2057AC8212F9FF90085B463 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		C2057ACA212FA0140085B463 /* BencodeValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BencodeValue.swift; sourceTree = "<group>"; };
-		C2057ACC212FA0470085B463 /* Character+ASCII.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+ASCII.swift"; sourceTree = "<group>"; };
 		C2057ACE212FA68C0085B463 /* BDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDecoder.swift; sourceTree = "<group>"; };
 		C22607A6212EB9B10067AE3A /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C22607A8212EB9B10067AE3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 				C2EC6DC6212EA53F00C7438B /* Info.plist */,
 				C2057AC8212F9FF90085B463 /* Parser.swift */,
 				C2057ACA212FA0140085B463 /* BencodeValue.swift */,
-				C2057ACC212FA0470085B463 /* Character+ASCII.swift */,
 				C2057ACE212FA68C0085B463 /* BDecoder.swift */,
 				C2BE35DF212FB96B00938BBC /* _BDecoingStorage.swift */,
 				C2BE35E1212FBC0900938BBC /* _BKeyedDecodingContainer.swift */,
@@ -431,7 +428,6 @@
 				C2057AC9212F9FF90085B463 /* Parser.swift in Sources */,
 				C2BE35E6212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift in Sources */,
 				C2057ACF212FA68C0085B463 /* BDecoder.swift in Sources */,
-				C2057ACD212FA0470085B463 /* Character+ASCII.swift in Sources */,
 				C2BE35E0212FB96B00938BBC /* _BDecoingStorage.swift in Sources */,
 				C2BE35E4212FC91D00938BBC /* DecoderError+Extension.swift in Sources */,
 				C2057ACB212FA0140085B463 /* BencodeValue.swift in Sources */,
