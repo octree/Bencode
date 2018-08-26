@@ -53,10 +53,3 @@ carthage "github/bencode" ~> 0.1.0
 
 
 
-
-## Todo
-
-
-
-- [ ] support optional
-
