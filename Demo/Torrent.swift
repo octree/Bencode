@@ -60,11 +60,12 @@ extension Torrent: Codable {
 extension Torrent.Info: Codable {
     
     enum CodingKeys: String, CodingKey {
+        
+        case files
         case length
         case name
-        case pieces
         case pieceLength = "piece length"
-        case files
+        case pieces
     }
 }
 
