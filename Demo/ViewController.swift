@@ -9,7 +9,7 @@
 import UIKit
 import Bencode
 
-struct Fuck: Decodable {
+struct Fuck: Codable {
     
     var name: String
     var age: Int?
@@ -17,7 +17,7 @@ struct Fuck: Decodable {
     var ints: [Int]
 }
 
-struct You: Decodable {
+struct You: Codable {
 
     var name: String
     enum CodingKeys: String, CodingKey {
@@ -49,16 +49,21 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        test()
+//        test()
         do {
             let decoder = BDecoder()
             let txt = "d4:name6:Octree4:intsli123ei234ee3:youd6:name x3:Biuee";
             let rt = try decoder.decode(Fuck.self, from: txt.data(using: .utf8)!)
             print(rt)
+            
+            let encoder = BEncoder()
+            let dict = ["Hello": ["Hello": [1, 2, 3]]]
+            let data = try encoder.encode(dict)
+            print(String(data: data, encoding: .utf8))
         } catch {
             print(error)
         }
-        decodeTest()
+//        decodeTest()
     }
 }
 

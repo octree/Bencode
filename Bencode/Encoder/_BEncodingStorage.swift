@@ -28,7 +28,7 @@ struct _BEncodingStorage {
         return array
     }
     
-    mutating func push(container: NSObject) {
+    mutating func push(container: Any) {
         
         self.containers.append(container)
     }

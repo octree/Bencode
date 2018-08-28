@@ -13,12 +13,14 @@ open class BEncoder {
     public init() {}
     
     open func encode<T: Encodable>(_ value: T) throws -> Data {
-        
-//        let encoder =
-        return Data()
+
+        let encoder = _BEncoder()
+        guard let topLevel = try encoder.box_(value) else {
+            throw EncodingError.invalidValue(value,
+                                             EncodingError.Context(codingPath: [], debugDescription: "Top-level \(T.self) did not encode any values."))
+        }
+        return topLevel.data
     }
-    
-    
 }
 
 
@@ -53,10 +55,23 @@ class _BEncoder: Encoder {
 
     func unkeyedContainer() -> UnkeyedEncodingContainer {
         
+        let topContainer: NSMutableArray
+        if self.canEncodeNewValue {
+            topContainer = self.storage.pushUnkeyedContainer()
+        } else {
+            guard let container = self.storage.containers.last as? NSMutableArray else {
+                preconditionFailure("Attempt to push new unkeyed encoding container when already previously encoded at this path.")
+            }
+            
+            topContainer = container
+        }
+        
+        return _BUnkeyedEncodingContainer(referencing: self, codingPath: self.codingPath, wrapping: topContainer)
     }
 
     func singleValueContainer() -> SingleValueEncodingContainer {
 
+        return self
     }
 }
 
@@ -152,7 +167,119 @@ extension _BEncoder {
             return nil
         }
         
-        return .dict(self.storage.pop() as! [String: BencodeValue])
-        
+        let value = self.storage.pop()
+        if value is NSMutableDictionary {
+            
+            return .dict(value as! [String: BencodeValue])
+        } else if value is NSMutableArray {
+            
+            return .list(value as! [BencodeValue])
+        } else {
+            
+            return value as? BencodeValue
+        }
     }
+}
+
+
+extension _BEncoder: SingleValueEncodingContainer {
+    
+    fileprivate func assertCanEncodeNewValue() {
+        precondition(self.canEncodeNewValue, "Attempt to encode value through single value container when previously value already encoded.")
+    }
+    
+    func encodeNil() throws {
+        assertCanEncodeNewValue()
+    }
+    
+    func encode(_ value: Bool) throws {
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: String) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: Double) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: Float) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: Int) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: Int8) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: Int16) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: Int32) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: Int64) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: UInt) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: UInt8) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: UInt16) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: UInt32) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode(_ value: UInt64) throws {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: self.box(value))
+    }
+    
+    func encode<T>(_ value: T) throws where T : Encodable {
+        
+        assertCanEncodeNewValue()
+        self.storage.push(container: try self.box(value))
+    }
+    
+    
 }

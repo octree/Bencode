@@ -107,6 +107,12 @@ struct _BKeyedEncodingContainer<K: CodingKey>: KeyedEncodingContainerProtocol {
     
     mutating func nestedUnkeyedContainer(forKey key: K) -> UnkeyedEncodingContainer {
         
+        self.codingPath.append(key)
+        defer { self.codingPath.removeLast() }
+        
+        let array = NSMutableArray()
+        self.container[key.stringValue] = array
+        return _BUnkeyedEncodingContainer(referencing: self.encoder, codingPath: self.codingPath, wrapping: array)
     }
     
     mutating func superEncoder() -> Encoder {

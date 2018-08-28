@@ -22,6 +22,7 @@ func decodeTest() {
     do {
         let bt = try BDecoder().decode(Torrent.self, from: btData())
         print(bt)
+        
     } catch {
         print(error)
     }

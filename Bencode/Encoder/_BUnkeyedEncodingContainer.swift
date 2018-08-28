@@ -24,7 +24,7 @@ struct _BUnkeyedEncodingContainer: UnkeyedEncodingContainer {
     }
     
     // MARK: - Initialization
-    fileprivate init(referencing encoder: _BEncoder, codingPath: [CodingKey], wrapping container: NSMutableArray) {
+    init(referencing encoder: _BEncoder, codingPath: [CodingKey], wrapping container: NSMutableArray) {
         self.encoder = encoder
         self.codingPath = codingPath
         self.container = container
@@ -72,7 +72,7 @@ struct _BUnkeyedEncodingContainer: UnkeyedEncodingContainer {
         
         let array = NSMutableArray()
         self.container.add(array)
-        return _BUnkeyedDecodingContainer(referencing: self.encoder, codingPath: self.codingPath, wrapping: array)
+        return _BUnkeyedEncodingContainer(referencing: self.encoder, codingPath: self.codingPath, wrapping: array)
     }
     
     public mutating func superEncoder() -> Encoder {
