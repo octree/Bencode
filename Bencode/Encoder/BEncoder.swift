@@ -26,16 +26,33 @@ class _BEncoder: Encoder {
     var codingPath: [CodingKey] = []
     var storage: _BEncodingStorage = _BEncodingStorage()
     var userInfo: [CodingUserInfoKey : Any] = [:]
-
-    init() {
+    var canEncodeNewValue: Bool {
+        return self.storage.count == self.codingPath.count
+    }
+    
+    init(codingPath: [CodingKey] = []) {
     }
 
     func container<Key>(keyedBy type: Key.Type) -> KeyedEncodingContainer<Key> where Key : CodingKey {
 
+        let topContainer: NSMutableDictionary
+        if self.canEncodeNewValue {
+            // We haven't yet pushed a container at this level; do so here.
+            topContainer = self.storage.pushKeyedContainer()
+        } else {
+            guard let container = self.storage.containers.last as? NSMutableDictionary else {
+                preconditionFailure("Attempt to push new keyed encoding container when already previously encoded at this path.")
+            }
+            
+            topContainer = container
+        }
+        
+        let container = _BKeyedEncodingContainer<Key>(referencing: self, codingPath: self.codingPath, wrapping: topContainer)
+        return KeyedEncodingContainer(container)
     }
 
     func unkeyedContainer() -> UnkeyedEncodingContainer {
-
+        
     }
 
     func singleValueContainer() -> SingleValueEncodingContainer {
@@ -63,12 +80,12 @@ extension _BEncoder {
     func box(_ value: UInt64) -> BencodeValue { return .integer(Int(value)) }
     func box(_ value: String) -> BencodeValue { return .string(value) }
     
-    func box(_ float: Float) throws -> BencodeValue {
+    func box(_ float: Float) -> BencodeValue {
         
         return .integer(Int(float))
     }
     
-    func box(_ double: Double) throws -> BencodeValue {
+    func box(_ double: Double) -> BencodeValue {
         return .integer(Int(double))
     }
     
@@ -76,7 +93,7 @@ extension _BEncoder {
         return .string(String(data: data, encoding: .utf8)!)
     }
     
-    fileprivate func box(_ dict: [String : Encodable]) throws -> BencodeValue? {
+    func box(_ dict: [String : Encodable]) throws -> BencodeValue? {
         
         let depth = self.storage.count
         let result = self.storage.pushKeyedContainer()
@@ -102,7 +119,7 @@ extension _BEncoder {
         return .dict(self.storage.pop() as! [String: BencodeValue])
     }
     
-    fileprivate func box(_ value: Encodable) throws -> BencodeValue {
+    func box(_ value: Encodable) throws -> BencodeValue {
         
         return try self.box_(value) ?? .dict([:])
     }
