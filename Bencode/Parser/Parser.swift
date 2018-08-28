@@ -10,7 +10,7 @@ import Foundation
 import ParserCombinator
 import FP
 
-private struct Tokens {
+struct Tokens {
     static let i: UInt8 = 0x69
     static let l: UInt8 = 0x6c
     static let d: UInt8 = 0x64
