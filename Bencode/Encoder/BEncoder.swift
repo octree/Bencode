@@ -8,6 +8,12 @@
 
 import Foundation
 
+private protocol BDictionaryEncodableMarker { }
+
+extension Dictionary : BDictionaryEncodableMarker where Key == String, Value: Encodable { }
+
+
+
 open class BEncoder {
     
     public init() {}
@@ -74,11 +80,6 @@ class _BEncoder: Encoder {
         return self
     }
 }
-
-protocol BDictionaryEncodableMarker { }
-
-extension Dictionary : BDictionaryEncodableMarker where Key == String, Value: Encodable { }
-
 
 extension _BEncoder {
     

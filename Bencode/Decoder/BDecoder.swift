@@ -7,7 +7,15 @@
 //
 
 import Foundation
-
+//
+//protocol _BStringDictionaryDecodableMarker {
+//    static var elementType: Decodable.Type { get }
+//}
+//
+//extension Dictionary : _BStringDictionaryDecodableMarker where Key == String, Value: Decodable {
+//    static var elementType: Decodable.Type { return Value.self }
+//}
+//
 open class BDecoder {
 
     open var userInfo: [CodingUserInfoKey : Any] = [:]
@@ -334,7 +342,29 @@ extension _BDecoder {
         
         throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: just)
     }
-    
+    /*
+    func unbox<T>(_ value: BencodeValue?, as type: _BStringDictionaryDecodableMarker.Type) throws -> T? {
+       
+        guard let just = value else {
+            return nil
+        }
+        
+        guard case let .dict(dict) = just else {
+            throw DecodingError._typeMismatch(at: self.codingPath, expectation: type, reality: just)
+        }
+        
+        var result = [String : Any]()
+        for (k, v) in dict {
+            self.codingPath.append(_BKey(stringValue: k, intValue: nil))
+            defer {
+                self.codingPath.removeLast()
+            }
+            
+            result[k] = try unbox_(value, as: type.elementType)
+        }
+        return result as? T
+    }
+    */
     func unbox<T : Decodable>(_ value: BencodeValue?, as type: T.Type) throws -> T? {
         return try unbox_(value, as: type) as? T
     }

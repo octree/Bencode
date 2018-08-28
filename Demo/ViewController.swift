@@ -15,6 +15,7 @@ struct Fuck: Codable {
     var age: Int?
     var you: You
     var ints: [Int]
+    var yooo: [String: [Int]]
 }
 
 struct You: Codable {
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
 //        test()
         do {
             let decoder = BDecoder()
-            let txt = "d4:name6:Octree4:intsli123ei234ee3:youd6:name x3:Biuee";
+            let txt = "d4:name6:Octree4:intsli123ei234ee3:youd6:name x3:Biue4:yoood4:xxxxli123ei345eeee";
             let rt = try decoder.decode(Fuck.self, from: txt.data(using: .utf8)!)
             print(rt)
             
