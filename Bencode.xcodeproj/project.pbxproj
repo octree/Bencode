@@ -195,6 +195,7 @@
 		C252B2002131B56D00DF095E /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				C2BE35E9212FEBB900938BBC /* Extensions.swift */,
 				C2057AC8212F9FF90085B463 /* Parser.swift */,
 				C2057ACA212FA0140085B463 /* BencodeValue.swift */,
 			);
@@ -243,7 +244,6 @@
 				C252B1FF2131B55900DF095E /* Decoder */,
 				C2EC6DC5212EA53F00C7438B /* Bencode.h */,
 				C2EC6DC6212EA53F00C7438B /* Info.plist */,
-				C2BE35E9212FEBB900938BBC /* Extensions.swift */,
 			);
 			path = Bencode;
 			sourceTree = "<group>";
