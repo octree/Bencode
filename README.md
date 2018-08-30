@@ -11,7 +11,7 @@ bencode parser, Powered by [ParserCombinator](https://github.com/octree/ParserCo
 
 
 ```swift
-struct Fuck: Decodable {
+struct Fuck: Codable {
     
     var name: String
     var age: Int?
@@ -29,6 +29,8 @@ do {
     let txt = "d4:name6:Octree4:intsli123ei234ee3:youd4:name3:Biuee";
     let rt = try decoder.decode(Fuck.self, from: txt.data(using: .utf8)!)
     print(rt)
+
+    // let data = try Bencoder().encode(rt)
 } catch {
     print(error)
 }
