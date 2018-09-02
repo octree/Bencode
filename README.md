@@ -19,7 +19,7 @@ struct Fuck: Codable {
     var ints: [Int]
 }
 
-struct You: Decodable {
+struct You: Codable {
 
     var name: String
 }
