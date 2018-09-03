@@ -1,5 +1,7 @@
 # Bencode
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 bencode parser, Powered by [ParserCombinator](https://github.com/octree/ParserCombinator)
 
 
