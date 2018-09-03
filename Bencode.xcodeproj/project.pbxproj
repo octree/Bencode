@@ -15,7 +15,6 @@
 		C22607AE212EB9B10067AE3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C22607AC212EB9B10067AE3A /* Main.storyboard */; };
 		C22607B0212EB9B20067AE3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C22607AF212EB9B20067AE3A /* Assets.xcassets */; };
 		C22607B3212EB9B20067AE3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C22607B1212EB9B20067AE3A /* LaunchScreen.storyboard */; };
-		C22607BE212EB9B20067AE3A /* DemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22607BD212EB9B20067AE3A /* DemoTests.swift */; };
 		C22607C6212EB9CE0067AE3A /* Bencode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6DC2212EA53F00C7438B /* Bencode.framework */; };
 		C22607C7212EB9CE0067AE3A /* Bencode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6DC2212EA53F00C7438B /* Bencode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C22607CB212EB9D50067AE3A /* FP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6E92212EB3DE00C7438B /* FP.framework */; };
@@ -39,16 +38,24 @@
 		C2EC6DD3212EA53F00C7438B /* Bencode.h in Headers */ = {isa = PBXBuildFile; fileRef = C2EC6DC5212EA53F00C7438B /* Bencode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C2EC6E93212EB3DE00C7438B /* ParserCombinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6E91212EB3DE00C7438B /* ParserCombinator.framework */; };
 		C2EC6E94212EB3DE00C7438B /* FP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2EC6E92212EB3DE00C7438B /* FP.framework */; };
+		C2F744F0213CD8ED00A32FEB /* Bencode.h in Headers */ = {isa = PBXBuildFile; fileRef = C2EC6DC5212EA53F00C7438B /* Bencode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2F744F1213CD90500A32FEB /* BEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C252B2022131B67700DF095E /* BEncoder.swift */; };
+		C2F744F2213CD90500A32FEB /* _BEncodingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C252B2042131B74400DF095E /* _BEncodingStorage.swift */; };
+		C2F744F3213CD90500A32FEB /* _BKeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29260D021352D5900382E54 /* _BKeyedEncodingContainer.swift */; };
+		C2F744F4213CD90500A32FEB /* _BUnkeyedEncodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29260D22135340200382E54 /* _BUnkeyedEncodingContainer.swift */; };
+		C2F744F5213CD90900A32FEB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E9212FEBB900938BBC /* Extensions.swift */; };
+		C2F744F6213CD90900A32FEB /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057AC8212F9FF90085B463 /* Parser.swift */; };
+		C2F744F7213CD90900A32FEB /* BencodeValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACA212FA0140085B463 /* BencodeValue.swift */; };
+		C2F744F8213CD90C00A32FEB /* BDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2057ACE212FA68C0085B463 /* BDecoder.swift */; };
+		C2F744F9213CD90C00A32FEB /* _BDecoingStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35DF212FB96B00938BBC /* _BDecoingStorage.swift */; };
+		C2F744FA213CD90C00A32FEB /* _BKeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E1212FBC0900938BBC /* _BKeyedDecodingContainer.swift */; };
+		C2F744FB213CD90C00A32FEB /* DecoderError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E3212FC91D00938BBC /* DecoderError+Extension.swift */; };
+		C2F744FC213CD90C00A32FEB /* _BUnkeyedDecodingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BE35E5212FD3C900938BBC /* _BUnkeyedDecodingContainer.swift */; };
+		C2F744FF213CD94400A32FEB /* ParserCombinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F744FD213CD94400A32FEB /* ParserCombinator.framework */; };
+		C2F74500213CD94400A32FEB /* FP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2F744FE213CD94400A32FEB /* FP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C22607BA212EB9B20067AE3A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C2EC6DB9212EA53F00C7438B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C22607A5212EB9B10067AE3A;
-			remoteInfo = Demo;
-		};
 		C22607C8212EB9CE0067AE3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C2EC6DB9212EA53F00C7438B /* Project object */;
@@ -92,9 +99,6 @@
 		C22607AF212EB9B20067AE3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C22607B2212EB9B20067AE3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C22607B4212EB9B20067AE3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C22607B9212EB9B20067AE3A /* DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C22607BD212EB9B20067AE3A /* DemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTests.swift; sourceTree = "<group>"; };
-		C22607BF212EB9B20067AE3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C252B2022131B67700DF095E /* BEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEncoder.swift; sourceTree = "<group>"; };
 		C252B2042131B74400DF095E /* _BEncodingStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _BEncodingStorage.swift; sourceTree = "<group>"; };
 		C29260D021352D5900382E54 /* _BKeyedEncodingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _BKeyedEncodingContainer.swift; sourceTree = "<group>"; };
@@ -115,6 +119,9 @@
 		C2EC6DD2212EA53F00C7438B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2EC6E91212EB3DE00C7438B /* ParserCombinator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParserCombinator.framework; path = Carthage/Build/iOS/ParserCombinator.framework; sourceTree = "<group>"; };
 		C2EC6E92212EB3DE00C7438B /* FP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FP.framework; path = Carthage/Build/iOS/FP.framework; sourceTree = "<group>"; };
+		C2F744E8213CD8AF00A32FEB /* Bencode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bencode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2F744FD213CD94400A32FEB /* ParserCombinator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParserCombinator.framework; path = Carthage/Build/Mac/ParserCombinator.framework; sourceTree = "<group>"; };
+		C2F744FE213CD94400A32FEB /* FP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FP.framework; path = Carthage/Build/Mac/FP.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,13 +132,6 @@
 				C22607CD212EB9D50067AE3A /* ParserCombinator.framework in Frameworks */,
 				C22607CB212EB9D50067AE3A /* FP.framework in Frameworks */,
 				C22607C6212EB9CE0067AE3A /* Bencode.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C22607B6212EB9B20067AE3A /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +152,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2F744E5213CD8AF00A32FEB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2F744FF213CD94400A32FEB /* ParserCombinator.framework in Frameworks */,
+				C2F74500213CD94400A32FEB /* FP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -169,15 +178,6 @@
 				C22607B4212EB9B20067AE3A /* Info.plist */,
 			);
 			path = Demo;
-			sourceTree = "<group>";
-		};
-		C22607BC212EB9B20067AE3A /* DemoTests */ = {
-			isa = PBXGroup;
-			children = (
-				C22607BD212EB9B20067AE3A /* DemoTests.swift */,
-				C22607BF212EB9B20067AE3A /* Info.plist */,
-			);
-			path = DemoTests;
 			sourceTree = "<group>";
 		};
 		C252B1FF2131B55900DF095E /* Decoder */ = {
@@ -219,7 +219,6 @@
 				C2EC6DC4212EA53F00C7438B /* Bencode */,
 				C2EC6DCF212EA53F00C7438B /* BencodeTests */,
 				C22607A7212EB9B10067AE3A /* Demo */,
-				C22607BC212EB9B20067AE3A /* DemoTests */,
 				C2EC6DC3212EA53F00C7438B /* Products */,
 				C2EC6E90212EB3DE00C7438B /* Frameworks */,
 			);
@@ -231,7 +230,7 @@
 				C2EC6DC2212EA53F00C7438B /* Bencode.framework */,
 				C2EC6DCB212EA53F00C7438B /* BencodeTests.xctest */,
 				C22607A6212EB9B10067AE3A /* Demo.app */,
-				C22607B9212EB9B20067AE3A /* DemoTests.xctest */,
+				C2F744E8213CD8AF00A32FEB /* Bencode.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,6 +259,8 @@
 		C2EC6E90212EB3DE00C7438B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C2F744FE213CD94400A32FEB /* FP.framework */,
+				C2F744FD213CD94400A32FEB /* ParserCombinator.framework */,
 				C2EC6E92212EB3DE00C7438B /* FP.framework */,
 				C2EC6E91212EB3DE00C7438B /* ParserCombinator.framework */,
 			);
@@ -274,6 +275,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EC6DD3212EA53F00C7438B /* Bencode.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C2F744E3213CD8AF00A32FEB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2F744F0213CD8ED00A32FEB /* Bencode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,24 +307,6 @@
 			productName = Demo;
 			productReference = C22607A6212EB9B10067AE3A /* Demo.app */;
 			productType = "com.apple.product-type.application";
-		};
-		C22607B8212EB9B20067AE3A /* DemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C22607C5212EB9B20067AE3A /* Build configuration list for PBXNativeTarget "DemoTests" */;
-			buildPhases = (
-				C22607B5212EB9B20067AE3A /* Sources */,
-				C22607B6212EB9B20067AE3A /* Frameworks */,
-				C22607B7212EB9B20067AE3A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C22607BB212EB9B20067AE3A /* PBXTargetDependency */,
-			);
-			name = DemoTests;
-			productName = DemoTests;
-			productReference = C22607B9212EB9B20067AE3A /* DemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		C2EC6DC1212EA53F00C7438B /* Bencode */ = {
 			isa = PBXNativeTarget;
@@ -353,6 +344,24 @@
 			productReference = C2EC6DCB212EA53F00C7438B /* BencodeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C2F744E7213CD8AF00A32FEB /* Bencode-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2F744ED213CD8AF00A32FEB /* Build configuration list for PBXNativeTarget "Bencode-macOS" */;
+			buildPhases = (
+				C2F744E3213CD8AF00A32FEB /* Headers */,
+				C2F744E4213CD8AF00A32FEB /* Sources */,
+				C2F744E5213CD8AF00A32FEB /* Frameworks */,
+				C2F744E6213CD8AF00A32FEB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bencode-macOS";
+			productName = "Bencode-macOS";
+			productReference = C2F744E8213CD8AF00A32FEB /* Bencode.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -366,15 +375,14 @@
 					C22607A5212EB9B10067AE3A = {
 						CreatedOnToolsVersion = 10.0;
 					};
-					C22607B8212EB9B20067AE3A = {
-						CreatedOnToolsVersion = 10.0;
-						TestTargetID = C22607A5212EB9B10067AE3A;
-					};
 					C2EC6DC1212EA53F00C7438B = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
 					};
 					C2EC6DCA212EA53F00C7438B = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					C2F744E7213CD8AF00A32FEB = {
 						CreatedOnToolsVersion = 10.0;
 					};
 				};
@@ -395,7 +403,7 @@
 				C2EC6DC1212EA53F00C7438B /* Bencode */,
 				C2EC6DCA212EA53F00C7438B /* BencodeTests */,
 				C22607A5212EB9B10067AE3A /* Demo */,
-				C22607B8212EB9B20067AE3A /* DemoTests */,
+				C2F744E7213CD8AF00A32FEB /* Bencode-macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -409,13 +417,6 @@
 				C22607B0212EB9B20067AE3A /* Assets.xcassets in Resources */,
 				C2BE364C21300DB400938BBC /* test.txt in Resources */,
 				C22607AE212EB9B10067AE3A /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C22607B7212EB9B20067AE3A /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +434,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2F744E6213CD8AF00A32FEB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -444,14 +452,6 @@
 				C2BE365021300EA100938BBC /* BT.swift in Sources */,
 				C22607A9212EB9B10067AE3A /* AppDelegate.swift in Sources */,
 				C2BE364E21300E9900938BBC /* Torrent.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C22607B5212EB9B20067AE3A /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C22607BE212EB9B20067AE3A /* DemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,14 +482,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C2F744E4213CD8AF00A32FEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2F744FB213CD90C00A32FEB /* DecoderError+Extension.swift in Sources */,
+				C2F744F5213CD90900A32FEB /* Extensions.swift in Sources */,
+				C2F744F8213CD90C00A32FEB /* BDecoder.swift in Sources */,
+				C2F744FA213CD90C00A32FEB /* _BKeyedDecodingContainer.swift in Sources */,
+				C2F744F1213CD90500A32FEB /* BEncoder.swift in Sources */,
+				C2F744F6213CD90900A32FEB /* Parser.swift in Sources */,
+				C2F744F2213CD90500A32FEB /* _BEncodingStorage.swift in Sources */,
+				C2F744F7213CD90900A32FEB /* BencodeValue.swift in Sources */,
+				C2F744F4213CD90500A32FEB /* _BUnkeyedEncodingContainer.swift in Sources */,
+				C2F744F3213CD90500A32FEB /* _BKeyedEncodingContainer.swift in Sources */,
+				C2F744FC213CD90C00A32FEB /* _BUnkeyedDecodingContainer.swift in Sources */,
+				C2F744F9213CD90C00A32FEB /* _BDecoingStorage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C22607BB212EB9B20067AE3A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C22607A5212EB9B10067AE3A /* Demo */;
-			targetProxy = C22607BA212EB9B20067AE3A /* PBXContainerItemProxy */;
-		};
 		C22607C9212EB9CE0067AE3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C2EC6DC1212EA53F00C7438B /* Bencode */;
@@ -565,48 +579,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		C22607C2212EB9B20067AE3A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7A5GV3DH33;
-				INFOPLIST_FILE = DemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.octree.becode.DemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
-			};
-			name = Debug;
-		};
-		C22607C3212EB9B20067AE3A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7A5GV3DH33;
-				INFOPLIST_FILE = DemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.octree.becode.DemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Demo.app/Demo";
 			};
 			name = Release;
 		};
@@ -831,6 +803,70 @@
 			};
 			name = Release;
 		};
+		C2F744EE213CD8AF00A32FEB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7A5GV3DH33;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Bencode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = me.octree.parser.Bencode;
+				PRODUCT_NAME = Bencode;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		C2F744EF213CD8AF00A32FEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 7A5GV3DH33;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Bencode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = me.octree.parser.Bencode;
+				PRODUCT_NAME = Bencode;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -839,15 +875,6 @@
 			buildConfigurations = (
 				C22607C0212EB9B20067AE3A /* Debug */,
 				C22607C1212EB9B20067AE3A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C22607C5212EB9B20067AE3A /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C22607C2212EB9B20067AE3A /* Debug */,
-				C22607C3212EB9B20067AE3A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -875,6 +902,15 @@
 			buildConfigurations = (
 				C2EC6DDA212EA53F00C7438B /* Debug */,
 				C2EC6DDB212EA53F00C7438B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2F744ED213CD8AF00A32FEB /* Build configuration list for PBXNativeTarget "Bencode-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2F744EE213CD8AF00A32FEB /* Debug */,
+				C2F744EF213CD8AF00A32FEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

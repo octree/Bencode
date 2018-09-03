@@ -6,7 +6,7 @@
 //  Copyright © 2018年 Octree. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for Bencode.
 FOUNDATION_EXPORT double BencodeVersionNumber;
