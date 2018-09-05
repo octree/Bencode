@@ -16,6 +16,8 @@ extension Dictionary : BDictionaryEncodableMarker where Key == String, Value: En
 
 open class BEncoder {
     
+    
+    /// 初始化一个编码器
     public init() {}
     
     open func encode<T: Encodable>(_ value: T) throws -> Data {
