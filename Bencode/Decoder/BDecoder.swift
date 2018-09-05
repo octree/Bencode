@@ -28,7 +28,7 @@ open class BDecoder {
     ///
     /// - Parameters:
     ///   - type: 目标类型，需要实现 Decodable 协议
-    ///   - data: NSData
+    ///   - data: Data
     /// - Returns: 解析后的类型
     /// - Throws: 格式错误会抛出异常
     open func decode<T : Decodable>(_ type: T.Type, from data: Data) throws -> T {
