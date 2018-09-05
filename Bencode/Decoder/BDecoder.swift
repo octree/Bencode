@@ -20,8 +20,17 @@ open class BDecoder {
 
     open var userInfo: [CodingUserInfoKey : Any] = [:]
 
+    /// 初始化一个解码器
     public init() {}
     
+    
+    /// 解码 Bencode Data
+    ///
+    /// - Parameters:
+    ///   - type: 目标类型，需要实现 Decodable 协议
+    ///   - data: NSData
+    /// - Returns: 解析后的类型
+    /// - Throws: 格式错误会抛出异常
     open func decode<T : Decodable>(_ type: T.Type, from data: Data) throws -> T {
         let topLevel: BencodeValue
         var bytes = [UInt8](data)
