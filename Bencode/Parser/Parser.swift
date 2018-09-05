@@ -174,4 +174,6 @@ func value() -> Parser<ArraySlice<Byte>, BencodeValue> {
 }
 
 /// BencodeParser
+/// input: ArraySlice<Byte>
+/// output: Result<BencodeValue>
 public let BencodeParser = value()
