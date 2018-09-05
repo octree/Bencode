@@ -20,6 +20,12 @@ open class BEncoder {
     /// 初始化一个编码器
     public init() {}
     
+    
+    /// 解码
+    ///
+    /// - Parameter value: 要解码的对象
+    /// - Returns: Data
+    /// - Throws: Error
     open func encode<T: Encodable>(_ value: T) throws -> Data {
 
         let encoder = _BEncoder()
